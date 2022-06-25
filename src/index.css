@@ -1,0 +1,10 @@
+.strike {
+  text-decoration: line-through;
+}
+
+.mydiv {
+  display: inline;
+}
+.hidden {
+  display: none;
+}
