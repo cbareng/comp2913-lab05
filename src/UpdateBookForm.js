@@ -11,6 +11,7 @@ const UpdateBookForm = () => {
   };
 
   const handleSubmit = (e) => {
+    console.log("handle submit update ", bookFromStore?.id);
     updateBook(bookFromStore?.id, newBookTitle);
     setNewBookTitle("");
   };

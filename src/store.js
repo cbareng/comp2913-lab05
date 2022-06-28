@@ -12,7 +12,8 @@ export const useStore = create((set) => ({
     set(
       produce((state) => {
         state.todoList.push({
-          id: state.todoList.length + 1,
+          // id: state.todoList.length + 1,
+          id: `${Date.now()}`, // make key unique so not to mess up delete
           title,
           complete: false
         });
@@ -22,7 +23,9 @@ export const useStore = create((set) => ({
     set(
       produce((state) => {
         if (id && newTitle) {
-          state.todoList[id - 1].title = newTitle;
+          state.todoList.forEach((book) => {
+            if (book.id === id) book.title = newTitle;
+          });
         }
         state.book = undefined;
       })
@@ -37,7 +40,6 @@ export const useStore = create((set) => ({
     set(
       produce((state) => {
         state.book = book;
-        console.log("loadUpdateForm ", book);
       })
     ),
   setFilter: (filter) =>
@@ -50,16 +52,10 @@ export const useStore = create((set) => ({
     set(
       produce((state) => {
         state.todoList = state.todoList.map((task) => {
-          return task.id === Number(id)
+          return task.id === id
             ? { ...task, complete: !task.complete }
             : { ...task };
         });
       })
     )
-  // remove: (id) =>
-  //   set(
-  //     produce((state) => {
-  //       state.todos.push();
-  //     })
-  //   )
 }));
