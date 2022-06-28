@@ -19,14 +19,16 @@ const TodoList = () => {
   const filterFromStore = useStore((state) => state.filter);
   const setFilterFromStore = useStore((state) => state.setFilter);
   return (
-    <ul>
-      {getFilteredTodoList(todoListFromStore, filterFromStore).map((todo) => {
-        return <Book key={todo.id} todo={todo} />;
-      })}
+    <div>
+      <ul className="nonbulleted">
+        {getFilteredTodoList(todoListFromStore, filterFromStore).map((todo) => {
+          return <Book key={todo.id} todo={todo} />;
+        })}
+      </ul>
       <button onClick={() => setFilterFromStore("Read")}>Read</button>
       <button onClick={() => setFilterFromStore("Reading")}>Reading</button>
       <button onClick={() => setFilterFromStore("All")}>All</button>
-    </ul>
+    </div>
   );
 };
 

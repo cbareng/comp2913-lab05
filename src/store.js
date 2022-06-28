@@ -17,6 +17,8 @@ export const useStore = create((set) => ({
           title,
           complete: false
         });
+        // hide update book form if it is currently displayed
+        state.book = undefined;
       })
     ),
   updateBook: (id, newTitle) =>
@@ -27,6 +29,7 @@ export const useStore = create((set) => ({
             if (book.id === id) book.title = newTitle;
           });
         }
+        // hide update book form if it is currently displayed
         state.book = undefined;
       })
     ),
@@ -34,6 +37,8 @@ export const useStore = create((set) => ({
     set(
       produce((state) => {
         state.todoList = state.todoList.filter((todo) => todo.id !== bookId);
+        // hide update book form if it is currently displayed
+        state.book = undefined;
       })
     ),
   loadUpdateForm: (book) =>
@@ -46,6 +51,8 @@ export const useStore = create((set) => ({
     set(
       produce((state) => {
         state.filter = filter;
+        // hide update book form if it is currently displayed
+        state.book = undefined;
       })
     ),
   handleToggle: (id) =>
@@ -56,6 +63,8 @@ export const useStore = create((set) => ({
             ? { ...task, complete: !task.complete }
             : { ...task };
         });
+        // hide update book form if it is currently displayed
+        state.book = undefined;
       })
     )
 }));

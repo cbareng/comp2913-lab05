@@ -2,9 +2,32 @@
   text-decoration: line-through;
 }
 
-.mydiv {
-  display: inline;
+.nonbulleted {
+  list-style: none;
+  padding: 0;
 }
+
+.mydiv {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  padding: 13px 0 13px 0;
+}
+
 .hidden {
   display: none;
+}
+
+.buttonW {
+  width: "30px";
+  height: "30px";
+}
+
+.Image {
+  width: 25%;
+  height: 25%;
+}
+
+.Image2 {
+  width: 50%;
+  height: 50%;
 }

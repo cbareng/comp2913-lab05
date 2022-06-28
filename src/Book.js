@@ -11,7 +11,7 @@ const Todo = ({ todo }) => {
   };
 
   return (
-    <div>
+    <>
       <li
         id={todo.id}
         key={todo.id + todo.title}
@@ -22,9 +22,17 @@ const Todo = ({ todo }) => {
       >
         {todo.title} &nbsp;
       </li>
-      <button onClick={() => removeBook(todo.id)}>Delete</button>&nbsp;
-      <button onClick={() => loadUpdateForm(todo)}>Update</button>
-    </div>
+      <button onClick={() => removeBook(todo.id)}>
+        <img className="Image" src="./icons8-delete-64.png" alt="delete book" />
+      </button>
+      &nbsp;
+      <button onClick={() => loadUpdateForm(todo)}>
+        <img className="Image2" src="./icons8-edit-32.png" alt="update book" />
+      </button>
+      &nbsp;
+      {/* <button onClick={() => removeBook(todo.id)}>Delete</button>&nbsp;
+      <button onClick={() => loadUpdateForm(todo)}>Update</button> */}
+    </>
   );
 };
 
