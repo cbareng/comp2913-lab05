@@ -21,8 +21,8 @@ const TodoList = () => {
   return (
     <div>
       <ul className="nonbulleted">
-        {getFilteredTodoList(todoListFromStore, filterFromStore).map((todo) => {
-          return <Book key={todo.id} todo={todo} />;
+        {getFilteredTodoList(todoListFromStore, filterFromStore).map((book) => {
+          return <Book key={book.id} book={book} />;
         })}
       </ul>
       <button onClick={() => setFilterFromStore("Read")}>Read</button>

@@ -1,7 +1,9 @@
 import React from "react";
 import { useStore } from "./store";
+import deleteButton from "../public/icons8-delete-64.png";
+import editButton from "../public/icons8-edit-32.png";
 
-const Todo = ({ todo }) => {
+const Todo = ({ book }) => {
   const handleToggleFromStore = useStore((state) => state.handleToggle);
   const removeBook = useStore((state) => state.removeBook);
   const loadUpdateForm = useStore((state) => state.loadUpdateForm);
@@ -13,21 +15,21 @@ const Todo = ({ todo }) => {
   return (
     <>
       <li
-        id={todo.id}
-        key={todo.id + todo.title}
+        id={book.id}
+        key={book.id + book.title}
         name="todo"
-        value={todo.id}
+        value={book.id}
         onClick={handleClick}
-        className={todo.complete ? "todo strike" : "todo"}
+        className={book.complete ? "todo strike" : "todo"}
       >
-        {todo.title} &nbsp;
+        {book.title} &nbsp;
       </li>
-      <button onClick={() => removeBook(todo.id)}>
-        <img className="Image" src="./icons8-delete-64.png" alt="delete book" />
+      <button onClick={() => removeBook(book.id)}>
+        <img className="Image" src={deleteButton} alt="delete book" />
       </button>
       &nbsp;
-      <button onClick={() => loadUpdateForm(todo)}>
-        <img className="Image2" src="./icons8-edit-32.png" alt="update book" />
+      <button onClick={() => loadUpdateForm(book)}>
+        <img className="Image" src={editButton} alt="update book" />
       </button>
       &nbsp;
       {/* <button onClick={() => removeBook(todo.id)}>Delete</button>&nbsp;

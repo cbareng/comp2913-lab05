@@ -11,12 +11,16 @@ export const useStore = create((set) => ({
   addBook: (title) =>
     set(
       produce((state) => {
-        state.todoList.push({
-          // id: state.todoList.length + 1,
-          id: `${Date.now()}`, // make key unique so not to mess up delete
-          title,
-          complete: false
-        });
+        if (title || title.trim().length > 0) {
+          state.todoList.push({
+            // id: state.todoList.length + 1,
+            id: `${Date.now()}`, // make key unique so not to mess up delete
+            title,
+            complete: false
+          });
+        } else {
+          console.log("Please enter Book Title");
+        }
         // hide update book form if it is currently displayed
         state.book = undefined;
       })

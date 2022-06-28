@@ -2,6 +2,10 @@
   text-decoration: line-through;
 }
 
+.todo {
+  margin-top: 10px;
+}
+
 .nonbulleted {
   list-style: none;
   padding: 0;
@@ -23,11 +27,6 @@
 }
 
 .Image {
-  width: 25%;
-  height: 25%;
-}
-
-.Image2 {
-  width: 50%;
-  height: 50%;
+  max-width: 15px;
+  max-height: 15px;
 }
