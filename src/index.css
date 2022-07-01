@@ -2,9 +2,31 @@
   text-decoration: line-through;
 }
 
-.mydiv {
-  display: inline;
+.todo {
+  margin-top: 10px;
 }
+
+.nonbulleted {
+  list-style: none;
+  padding: 0;
+}
+
+.mydiv {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  padding: 13px 0 13px 0;
+}
+
 .hidden {
   display: none;
+}
+
+.buttonW {
+  width: "30px";
+  height: "30px";
+}
+
+.Image {
+  max-width: 15px;
+  max-height: 15px;
 }

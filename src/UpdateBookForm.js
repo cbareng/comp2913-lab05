@@ -4,13 +4,21 @@ import { useStore } from "./store";
 const UpdateBookForm = () => {
   const bookFromStore = useStore((state) => state.book);
   const updateBook = useStore((state) => state.updateBook);
+  const setUpdateFormBookTitleFunction = useStore(
+    (state) => state.setUpdateFormBookTitleFunction
+  );
+  // const bookTitle = useStore((state) => state.bookTitle);
+  // const setBookTitle = useStore((state) => state.setBookTitle);
   const [newBookTitle, setNewBookTitle] = useState("");
+  setUpdateFormBookTitleFunction(setNewBookTitle);
 
   const handleChange = (e) => {
     setNewBookTitle(e.currentTarget.value);
+    // setBookTitle(e.currentTarget.value);
   };
 
   const handleSubmit = (e) => {
+    // console.log("handle submit update ", bookFromStore?.id);
     updateBook(bookFromStore?.id, newBookTitle);
     setNewBookTitle("");
   };
