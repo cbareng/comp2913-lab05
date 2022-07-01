@@ -5,9 +5,23 @@ export const useStore = create((set) => ({
   todoList: [],
   filter: "All",
   book: undefined,
+  // bookTitle: undefined,
+  updateFormBookTitleFunction: undefined,
   // just zustand:
   // add: (title) => set((state) => ({ todos: [...state.todos, { title }] }))
   // using immer with zustand
+  // setBookTitle: (title) =>
+  //   set(
+  //     produce((state) => {
+  //       state.bookTitle = title;
+  //     })
+  //   ),
+  setUpdateFormBookTitleFunction: (setTitleFunction) =>
+    set(
+      produce((state) => {
+        state.updateFormBookTitleFunction = setTitleFunction;
+      })
+    ),
   addBook: (title) =>
     set(
       produce((state) => {
@@ -49,6 +63,8 @@ export const useStore = create((set) => ({
     set(
       produce((state) => {
         state.book = book;
+        state.bookTitle = book.title;
+        state.updateFormBookTitleFunction(book.title);
       })
     ),
   setFilter: (filter) =>
